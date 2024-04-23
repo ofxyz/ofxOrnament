@@ -20,16 +20,6 @@ void Ornament::setup(int w, int h, WALLPAPER_GROUP wallpaperGroup_, int tileSize
     angle = angle_;
     fbo.allocate(width, height);
     
-   /* ornamentShader.setupShaderFromSource(GL_VERTEX_SHADER, getVertexShader());
-    ornamentShader.setupShaderFromSource(GL_FRAGMENT_SHADER, getOrnamentShader());
-    ornamentShader.linkProgram();
-    
-    
-    wallpaperShader.setupShaderFromSource(GL_VERTEX_SHADER, getVertexShader());
-    wallpaperShader.setupShaderFromSource(GL_FRAGMENT_SHADER, getWallpaperShader());
-    wallpaperShader.linkProgram();
-   */
-
 	if (ofIsGLProgrammableRenderer()) {
 		ornamentShader.load("shadersGL3/ornament");
         wallpaperShader.load("shadersGL3/wallpaper");
