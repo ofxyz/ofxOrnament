@@ -13,7 +13,7 @@ out vec2 texCoordVarying;
 void main()
 {
     // here we move the texture coordinates
-    texCoordVarying = vec2(texcoord.x + mouseX, texcoord.y);
+    texCoordVarying = vec2(texcoord.x, texcoord.y);
 
     // send the vertices to the fragment shader
 	gl_Position = modelViewProjectionMatrix * position;
