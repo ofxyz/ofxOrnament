@@ -1,1 +1,5 @@
 copy_to_data/*
+x64
+*.obj
+*.pdb
+.vs
