@@ -2,7 +2,9 @@
 
 tool to create ornaments
 
-Compatible with openFrameworks 0.9.0+ 
+Compatible with openFrameworks 0.9.0+ and shaders included for GL2 and GL3.
+
+> NOTE: Copy shader files into your `bin` folder. See example.
 
 Generate all project files using the openFrameworks Project Generator.
 
