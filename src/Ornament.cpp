@@ -32,21 +32,14 @@ void Ornament::setup(int w, int h, WALLPAPER_GROUP wallpaperGroup_, int tileSize
 
 void Ornament::loadTexture(ofTexture texture){
     inputTexture = texture;
-    
-    int w = width;
-    int h = height;
-    if (texture.getWidth() > w) {
-        w = texture.getWidth();
-    }
-    if (texture.getHeight() > h) {
-        h = texture.getHeight();
-    }
-    
-    
-    if (!tileFbo.isAllocated() || tileFbo.getWidth() != w || tileFbo.getHeight()!=h) {
-        tileFbo.allocate(w, h);
-        resizeFbo.allocate(w, h);
-    }
+
+    int w = texture.getWidth();
+    int h = texture.getHeight();
+
+    fbo.allocate(w, h);
+    tileFbo.allocate(w, h);
+    resizeFbo.allocate(w, h);
+
     createOrnament();
 }
 
