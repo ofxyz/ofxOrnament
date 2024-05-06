@@ -51,10 +51,6 @@ public:
 private:
     void createOrnament();
     
-    string getVertexShader();
-    string getOrnamentShader();
-    string getWallpaperShader();
-    
     /// \helper functions
     static ofVec2f resize(ofVec2f src, ofVec2f dst);
     static void getBoundingBox(vector<ofVec2f> input, ofVec2f& pos, ofVec2f& size);
@@ -62,15 +58,16 @@ private:
     
     ofTexture inputTexture;
     ofTexture outputTexture;
-    WALLPAPER_GROUP wallpaperGroup;
+	WALLPAPER_GROUP wallpaperGroup = WPG_P3;
     ofFbo fbo;
     ofFbo tileFbo;
     ofFbo resizeFbo;
     
-    float tileSize;
-    float angle;
+    float tileSize = 150;
+    float angle = 0;
     
-    int width,height;
+    int width = 800;
+	int height = 600;
     
     ofShader wallpaperShader;
     ofShader ornamentShader;

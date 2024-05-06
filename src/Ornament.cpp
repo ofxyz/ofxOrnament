@@ -12,14 +12,13 @@
 
 //------------------------------------------------------------------
 void Ornament::setup(int w, int h, WALLPAPER_GROUP wallpaperGroup_, int tileSize_, float angle_) {
-    
     width = w;
     height = h;
     wallpaperGroup = wallpaperGroup_;
     tileSize = tileSize_;
     angle = angle_;
     fbo.allocate(width, height);
-    
+
 	if (ofIsGLProgrammableRenderer()) {
 		ornamentShader.load("shadersGL3/ornament");
         wallpaperShader.load("shadersGL3/wallpaper");
@@ -35,10 +34,15 @@ void Ornament::loadTexture(ofTexture texture){
 
     int w = texture.getWidth();
     int h = texture.getHeight();
+	int f = texture.getTextureData().glInternalFormat;
 
-    fbo.allocate(w, h);
-    tileFbo.allocate(w, h);
-    resizeFbo.allocate(w, h);
+    fbo.allocate(w, h, f);
+    tileFbo.allocate(w, h, f);
+    resizeFbo.allocate(w, h, f);
+
+    fbo.getTexture().setTextureMinMagFilter(inputTexture.getTextureData().minFilter, inputTexture.getTextureData().magFilter);
+    tileFbo.getTexture().setTextureMinMagFilter(inputTexture.getTextureData().minFilter, inputTexture.getTextureData().magFilter);
+    resizeFbo.getTexture().setTextureMinMagFilter(inputTexture.getTextureData().minFilter, inputTexture.getTextureData().magFilter);
 
     createOrnament();
 }
